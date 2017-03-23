@@ -4,7 +4,7 @@
 target/
 test-output/
 bin/
-j2e-pac4j-demo.iml
+*.iml
 .idea
 sp-metadata.xml
 .DS_Store

@@ -1,0 +1,13 @@
+# working with Pac4jFactory1:
+pac4j:
+  configClass: org.pac4j.demo.dw.factory.DemoConfigFactory1
+  configProperties:
+    callbackUrl: http://localhost:8080/views/callback
+    loginUrl: /views/login.html
+    fbKey: 145278422258960
+    fbSecret: be21409ba8f39b5dae2a7de525484da8
+
+logging:
+  level: INFO
+  loggers:
+    org.pac4j: DEBUG
