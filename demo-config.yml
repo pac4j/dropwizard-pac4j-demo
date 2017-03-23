@@ -1,9 +1,9 @@
 pac4j:
-  callbackUrl: /views/callback
+  callbackUrl: /callback
   clients:
   - org.pac4j.core.client.direct.AnonymousClient: {}
   - org.pac4j.http.client.indirect.FormClient:
-      loginUrl: /views/login.html
+      loginUrl: /login.html
       authenticator:
         class: org.pac4j.http.credentials.authenticator.test.SimpleTestUsernamePasswordAuthenticator
   - org.pac4j.oauth.client.FacebookClient:
@@ -12,14 +12,14 @@ pac4j:
   authorizers:
     mustBeAuth:
       class: org.pac4j.core.authorization.authorizer.IsAuthenticatedAuthorizer
-      redirectionUrl: /views/?mustBeAuth
+      redirectionUrl: /?mustBeAuth
     mustBeAnon:
       class: org.pac4j.core.authorization.authorizer.IsAnonymousAuthorizer
-      redirectionUrl: /views/?mustBeAnon
+      redirectionUrl: /?mustBeAnon
   matchers:
     excludedFbPath:
       class: org.pac4j.core.matching.ExcludedPathMatcher
-      excludePath: ^/views/facebook/notprotected.html$
+      excludePath: ^/facebook/notprotected.html$
 
 logging:
   level: INFO
