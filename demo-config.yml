@@ -18,8 +18,9 @@ pac4j:
       redirectionUrl: /views/?mustBeAnon
   matchers:
     excludedFbPath:
-      class: org.pac4j.core.matching.ExcludedPathMatcher
-      excludePath: ^/views/facebook/notprotected.html$
+      class: org.pac4j.core.matching.PathMatcher
+      excludedPaths:
+        - /views/facebook/notprotected.html
 
 logging:
   level: INFO

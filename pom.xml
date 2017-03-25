@@ -22,8 +22,8 @@
   </repositories>
 
   <properties>
-    <pac4j.version>1.9.6</pac4j.version>
-    <dropwizard-pac4j.version>1.2.1</dropwizard-pac4j.version>
+    <pac4j.version>2.0.0-RC2</pac4j.version>
+    <dropwizard-pac4j.version>2.0.0-RC2-SNAPSHOT</dropwizard-pac4j.version>
     <java.version>1.8</java.version>
   </properties>
 
@@ -32,7 +32,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-bom</artifactId>
-        <version>1.0.3</version>
+        <version>1.1.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -71,6 +71,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <!-- Run with "mvn compile exec:exec" -->
         <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
         <configuration>
           <executable>${java.home}/bin/java</executable>
           <arguments>

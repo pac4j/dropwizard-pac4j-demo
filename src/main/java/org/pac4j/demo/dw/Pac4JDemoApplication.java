@@ -36,8 +36,6 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
     public void run(Pac4JDemoConfiguration conf, Environment env)
             throws Exception {
 
-        env.servlets().setSessionHandler(new SessionHandler());
-
         env.jersey().register(new AbstractBinder() {
             @Override
             protected void configure() {
