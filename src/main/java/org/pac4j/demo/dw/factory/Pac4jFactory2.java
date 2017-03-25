@@ -6,14 +6,16 @@ import org.pac4j.core.client.Clients;
 import org.pac4j.core.config.Config;
 import org.pac4j.dropwizard.Pac4jFactory;
 
+import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * This Pac4j factory relies on client properties {@link #clientsProperties} to define all the clients.
  */
 public class Pac4jFactory2 extends Pac4jFactory {
 
-    private Map<String, String> clientsProperties;
+    private Map<String, String> clientsProperties = new HashMap<>();
 
     public Map<String, String> getClientsProperties() {
         return clientsProperties;
@@ -21,7 +23,9 @@ public class Pac4jFactory2 extends Pac4jFactory {
 
     @JsonProperty
     public void setClientsProperties(Map<String, String> clientsProperties) {
-        this.clientsProperties = clientsProperties;
+	    if (clientsProperties != null) {
+          this.clientsProperties.putAll(clientsProperties);
+		}        
     }
 
     @Override

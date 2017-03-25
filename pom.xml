@@ -72,22 +72,21 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <!-- Run with "mvn compile exec:exec" -->
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
-        <configuration>
-          <executable>${java.home}/bin/java</executable>
-          <arguments>
-            <argument>-classpath</argument>
-            <classpath />
-            <argument>org.pac4j.demo.dw.Pac4JDemoApplication</argument>
-            <argument>server</argument>
-            <argument>demo-config.yml</argument>
-          </arguments>
-        </configuration>
-      </plugin>
+		<plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <!-- Run with "mvn compile exec:exec" -->
+          <artifactId>exec-maven-plugin</artifactId>
+          <configuration>
+             <executable>${java.home}/bin/java</executable>
+               <arguments>
+                 <argument>-classpath</argument>
+                 <classpath />
+                 <argument>org.pac4j.demo.dw.Pac4JDemoApplication</argument>
+                 <argument>server</argument>
+                 <argument>demo-config.yml</argument>
+               </arguments>
+           </configuration>
+         </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -96,6 +95,43 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+      <!-- Shade -->
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>1.6</version>
+          <configuration>
+              <createDependencyReducedPom>true</createDependencyReducedPom>
+              <filters>
+                  <filter>
+                      <artifact>*:*</artifact>
+                      <excludes>
+                          <exclude>META-INF/*.SF</exclude>
+                          <exclude>META-INF/*.DSA</exclude>
+                          <exclude>META-INF/*.RSA</exclude>
+                      </excludes>
+                  </filter>
+              </filters>
+          </configuration>
+          <executions>
+              <execution>
+                  <phase>package</phase>
+                  <goals>
+                      <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                      <transformers>
+                          <transformer
+                                  implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                          <transformer
+                                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                              <mainClass>org.pac4j.demo.dw.Pac4JDemoApplication</mainClass>
+                          </transformer>
+                      </transformers>
+                  </configuration>
+              </execution>
+          </executions>
       </plugin>
     </plugins>
   </build>
