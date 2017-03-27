@@ -1,4 +1,3 @@
-# working with Pac4jFactory2:
 pac4j:
   callbackUrl: /callback
   clientsProperties:

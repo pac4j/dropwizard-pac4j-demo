@@ -5,7 +5,6 @@ import com.codahale.metrics.health.HealthCheck;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.pac4j.core.config.Config;
-import org.pac4j.demo.dw.factory.Pac4jFactory1;
 import org.pac4j.demo.dw.resources.ViewsResource;
 import org.pac4j.dropwizard.Pac4jBundle;
 import org.pac4j.dropwizard.Pac4jFactory;
