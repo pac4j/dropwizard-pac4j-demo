@@ -14,7 +14,7 @@ One way of integrating pac4j with dropwizard is when protecting an applications
 with views returned by the JAX-RS resources.
 
 Run the application with `mvn compile exec:exec` and access
-`http://localhost:8080/views/`.
+`http://localhost:8080`.
 
 `FormClient` and `FacebookClient` are demonstrated.
 
