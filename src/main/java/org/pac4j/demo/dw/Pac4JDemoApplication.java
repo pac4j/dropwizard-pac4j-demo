@@ -1,5 +1,7 @@
 package org.pac4j.demo.dw;
 
+import com.codahale.metrics.health.HealthCheck;
+
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.pac4j.core.config.Config;
@@ -45,6 +47,12 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
         });
 
         env.jersey().register(ViewsResource.class);
-    }
 
+        env.healthChecks().register(getName(), new HealthCheck() {
+            @Override
+            protected Result check() throws Exception {
+                return Result.healthy();
+            }
+        });
+    }
 }

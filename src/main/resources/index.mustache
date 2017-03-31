@@ -1,12 +1,13 @@
 <html>
   <body>
     <h1>index</h1>
-    <a href="/views/facebook/index.html">Protected url by Facebook: facebook/index.html</a> (use a real account)<br />
-    <a href="/views/facebook/notprotected.html">Not protected page: facebook/notprotected.html</a> (no authentication required)<br />
-    <a href="/views/form/index.html">Protected url by form authentication: form/index.html</a> (use login = pwd)<br />
-    <a href="/views/protected/index.html">Protected url: protected/index.html</a> (won't start any login process)<br />
+    <a href="/facebook/index.html">Protected url by Facebook: facebook/index.html</a> (use a real account)<br />
+    <a href="/facebook/notprotected.html">Not protected page: facebook/notprotected.html</a> (no authentication required)<br />
+    <a href="/form/index.html">Protected url by form authentication: form/index.html</a> (use login = pwd)<br />
+    <a href="/saml2/index.html">Protected url by Okta (SAML 2 identity provider): saml2/index.html</a> (use testpac4j@gmail.com / Pac4jtest)<br />
+    <a href="/protected/index.html">Protected url: protected/index.html</a> (won't start any login process)<br />
     <br />
-    <a href="/views/logout?url=/views/?forcepostlogouturl">logout</a><br />
+    <a href="/logout?url=/?forcepostlogouturl">logout</a><br />
     <br /><br />
     {{#profiles}}<b>{{toString}}</b>{{/profiles}}
     {{^profiles}}No profiles!{{/profiles}}

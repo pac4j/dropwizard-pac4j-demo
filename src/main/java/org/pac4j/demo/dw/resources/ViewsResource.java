@@ -18,7 +18,7 @@ import org.pac4j.jax.rs.annotations.Pac4JSecurity;
 
 import io.dropwizard.views.View;
 
-@Path("/views")
+@Path("/")
 public class ViewsResource {
 
     private final Config config;
@@ -38,6 +38,13 @@ public class ViewsResource {
     @Pac4JSecurity(clients = "FacebookClient", authorizers = "securityHeaders", matchers = "excludedFbPath")
     public View fbProtected(
             @Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+        return new ProfilesView(pm);
+    }
+
+    @GET
+    @Path("/saml2/index.html")
+    @Pac4JSecurity(clients = "SAML2Client", authorizers = "securityHeaders")
+    public View saml2(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
     }
 
