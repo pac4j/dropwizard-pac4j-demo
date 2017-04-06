@@ -10,12 +10,9 @@ pac4j:
     saml.maximumAuthenticationLifetime: 3600
     saml.serviceProviderEntityId: http://localhost:8080/callback?client_name=SAML2Client
     saml.serviceProviderMetadataPath: sp-metadata.xml
-  clients:
-  - org.pac4j.core.client.direct.AnonymousClient: {}
-  - org.pac4j.http.client.indirect.FormClient:
-      loginUrl: /login.html
-      authenticator:
-        class: org.pac4j.http.credentials.authenticator.test.SimpleTestUsernamePasswordAuthenticator
+    anonymous: fakevalue
+    formClient.loginUrl: /login.html
+    formClient.authenticator: testUsernamePassword
   authorizers:
     mustBeAuth:
       class: org.pac4j.core.authorization.authorizer.IsAuthenticatedAuthorizer
