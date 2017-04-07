@@ -11,8 +11,15 @@ pac4j:
     saml.serviceProviderEntityId: http://localhost:8080/callback?client_name=SAML2Client
     saml.serviceProviderMetadataPath: sp-metadata.xml
     anonymous: fakevalue
+    ldap.type: direct
+    ldap.url: ldap://ldap.jumpcloud.com:389
+    ldap.useStartTls: false
+    ldap.useSsl: false
+    ldap.dnFormat: uid=%s,ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
+    ldap.usersDn: ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
+    ldap.principalAttributes: firstName,lastName
     formClient.loginUrl: /login.html
-    formClient.authenticator: testUsernamePassword
+    formClient.authenticator: ldap
   authorizers:
     mustBeAuth:
       class: org.pac4j.core.authorization.authorizer.IsAuthenticatedAuthorizer
