@@ -10,12 +10,18 @@ pac4j:
     saml.maximumAuthenticationLifetime: 3600
     saml.serviceProviderEntityId: http://localhost:8080/callback?client_name=SAML2Client
     saml.serviceProviderMetadataPath: sp-metadata.xml
-  clients:
-  - org.pac4j.core.client.direct.AnonymousClient: {}
-  - org.pac4j.http.client.indirect.FormClient:
-      loginUrl: /login.html
-      authenticator:
-        class: org.pac4j.http.credentials.authenticator.test.SimpleTestUsernamePasswordAuthenticator
+    anonymous: fakevalue
+    ldap.type: direct
+    ldap.url: ldap://ldap.jumpcloud.com:389
+    ldap.useStartTls: false
+    ldap.useSsl: false
+    ldap.dnFormat: uid=%s,ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
+    ldap.usersDn: ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
+    ldap.principalAttributeId: uid
+    ldap.principalAttributes: firstName,lastName
+    ldap.enhanceWithEntryResolver: false
+    formClient.loginUrl: /login.html
+    formClient.authenticator: ldap
   authorizers:
     mustBeAuth:
       class: org.pac4j.core.authorization.authorizer.IsAuthenticatedAuthorizer
@@ -33,3 +39,4 @@ logging:
   level: INFO
   loggers:
     org.pac4j: DEBUG
+    org.ldaptive: DEBUG
