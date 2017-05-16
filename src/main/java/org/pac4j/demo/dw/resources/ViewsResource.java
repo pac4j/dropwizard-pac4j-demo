@@ -56,6 +56,13 @@ public class ViewsResource {
     }
 
     @GET
+    @Path("/basicauth/index.html")
+    @Pac4JSecurity(clients = "IndirectBasicAuthClient", authorizers = "securityHeaders")
+    public View basicauth(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+        return new ProfilesView(pm);
+    }
+
+    @GET
     @Path("/protected/index.html")
     @Pac4JSecurity(authorizers = "securityHeaders")
     public View protect(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
