@@ -18,7 +18,7 @@ pac4j:
     ldap.dnFormat: uid=%s,ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
     ldap.usersDn: ou=Users,o=58e69adc0914b437324e7632,dc=jumpcloud,dc=com
     ldap.principalAttributeId: uid
-    ldap.principalAttributes: firstName,lastName
+    ldap.principalAttributes: mail
     ldap.enhanceWithEntryResolver: false
     formClient.loginUrl: /login.html
     formClient.authenticator: ldap
