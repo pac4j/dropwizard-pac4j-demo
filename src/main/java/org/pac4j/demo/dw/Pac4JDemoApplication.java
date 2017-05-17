@@ -13,6 +13,7 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import org.pac4j.sql.test.tools.DbServer;
 
 public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
 
@@ -31,7 +32,7 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
     @Override
     public void initialize(Bootstrap<Pac4JDemoConfiguration> bootstrap) {
         bootstrap.addBundle(pac4j);
-        bootstrap.addBundle(new ViewBundle<Pac4JDemoConfiguration>());
+        bootstrap.addBundle(new ViewBundle<>());
     }
 
     @Override
@@ -54,5 +55,7 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
                 return Result.healthy();
             }
         });
+
+        new DbServer();
     }
 }

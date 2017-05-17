@@ -22,9 +22,11 @@
   </repositories>
 
   <properties>
-    <pac4j.version>2.0.0</pac4j.version>
+    <pac4j.version>2.1.0-SNAPSHOT</pac4j.version>
     <dropwizard-pac4j.version>2.0.0</dropwizard-pac4j.version>
     <java.version>1.8</java.version>
+    <h2.version>1.4.194</h2.version>
+    <spring-security-crypto.version>4.2.2.RELEASE</spring-security-crypto.version>
   </properties>
 
   <dependencyManagement>
@@ -72,6 +74,38 @@
       <groupId>org.pac4j</groupId>
       <artifactId>pac4j-saml</artifactId>
       <version>${pac4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-config</artifactId>
+      <version>${pac4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-sql</artifactId>
+      <version>${pac4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-crypto</artifactId>
+      <version>${spring-security-crypto.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-core</artifactId>
+      <type>test-jar</type>
+      <version>${pac4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-sql</artifactId>
+      <type>test-jar</type>
+      <version>${pac4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
     </dependency>
   </dependencies>
 
