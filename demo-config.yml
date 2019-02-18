@@ -8,6 +8,8 @@ server:
 
 pac4j:
   callbackUrl: /callback
+  ajaxRequestResolver:
+    class: org.pac4j.core.http.ajax.DefaultAjaxRequestResolver
   clientsProperties:
     facebook.id: 145278422258960
     facebook.secret: be21409ba8f39b5dae2a7de525484da8
