@@ -12,7 +12,7 @@ public class LoginView extends View {
     public LoginView(Config config) {
         super("/loginForm.mustache");
         this.callbackUrl = config.getClients().findClient(FormClient.class)
-                .getCallbackUrl();
+                .getCallbackUrl() + "?client_name=FormClient";
     }
 
     public String getCallbackUrl() {
