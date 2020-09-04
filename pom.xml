@@ -26,7 +26,7 @@
     <dropwizard-pac4j.version>4.0.0-SNAPSHOT</dropwizard-pac4j.version>
     <java.version>1.8</java.version>
     <h2.version>1.4.200</h2.version>
-    <spring-security-crypto.version>4.2.18.RELEASE</spring-security-crypto.version>
+    <spring-security-crypto.version>5.3.4.RELEASE</spring-security-crypto.version>
   </properties>
 
   <dependencyManagement>
