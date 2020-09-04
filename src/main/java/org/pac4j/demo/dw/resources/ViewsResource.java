@@ -35,7 +35,7 @@ public class ViewsResource {
 
     @GET
     @Path("/facebook/{page}.html")
-    @Pac4JSecurity(clients = "FacebookClient", authorizers = "securityHeaders", matchers = "excludedFbPath")
+    @Pac4JSecurity(clients = "FacebookClient", matchers = "excludedFbPath")
     public View fbProtected(
             @Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
@@ -43,29 +43,36 @@ public class ViewsResource {
 
     @GET
     @Path("/saml2/index.html")
-    @Pac4JSecurity(clients = "SAML2Client", authorizers = "securityHeaders")
+    @Pac4JSecurity(clients = "SAML2Client")
     public View saml2(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/form/index.html")
-    @Pac4JSecurity(clients = "FormClient", authorizers = "securityHeaders")
+    @Pac4JSecurity(clients = "FormClient")
     public View form(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/basicauth/index.html")
-    @Pac4JSecurity(clients = "IndirectBasicAuthClient", authorizers = "securityHeaders")
+    @Pac4JSecurity(clients = "IndirectBasicAuthClient")
     public View basicauth(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/protected/index.html")
-    @Pac4JSecurity(authorizers = "securityHeaders")
+    @Pac4JSecurity()
     public View protect(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+        return new ProfilesView(pm);
+    }
+
+    @GET
+    @Path("/dba/index.html")
+    @Pac4JSecurity(clients = "DirectBasicAuthClient")
+    public View dba(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
         return new ProfilesView(pm);
     }
 

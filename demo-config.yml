@@ -45,6 +45,7 @@ pac4j:
     db.passwordEncoder: encoder.spring
     indirectBasicAuth.authenticator: db
     indirectBasicAuth.realName: DB authentication realm
+    directBasicAuth.authenticator: testUsernamePassword
   authorizers:
     mustBeAuth:
       class: org.pac4j.core.authorization.authorizer.IsAuthenticatedAuthorizer
@@ -54,7 +55,7 @@ pac4j:
       redirectionUrl: /?mustBeAnon
   matchers:
     excludedFbPath:
-      class: org.pac4j.core.matching.PathMatcher
+      class: org.pac4j.core.matching.matcher.PathMatcher
       excludedPaths:
         - /facebook/notprotected.html
 
