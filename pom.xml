@@ -126,7 +126,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <!-- Run with "mvn compile exec:exec" -->
         <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
         <configuration>
           <executable>${java.home}/bin/java</executable>
           <arguments>
