@@ -22,11 +22,11 @@
   </repositories>
 
   <properties>
-    <pac4j.version>4.5.7</pac4j.version>
+    <pac4j.version>4.5.8</pac4j.version>
     <dropwizard-pac4j.version>5.0.0</dropwizard-pac4j.version>
     <java.version>11</java.version>
-    <h2.version>2.2.224</h2.version>
-    <spring-security-crypto.version>6.2.0</spring-security-crypto.version>
+    <h2.version>2.3.232</h2.version>
+    <spring-security-crypto.version>5.4.0</spring-security-crypto.version>
   </properties>
 
   <dependencyManagement>
@@ -126,7 +126,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <!-- Run with "mvn compile exec:exec" -->
         <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.5.1</version>
         <configuration>
           <executable>${java.home}/bin/java</executable>
           <arguments>
@@ -141,7 +141,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>3.14.1</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
