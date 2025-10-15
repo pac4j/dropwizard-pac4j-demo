@@ -3,6 +3,7 @@ package org.pac4j.demo.dw;
 import com.codahale.metrics.health.HealthCheck;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import org.pac4j.core.client.IndirectClient;
 import org.pac4j.core.config.Config;
 import org.pac4j.demo.dw.resources.ViewsResource;
 import org.pac4j.dropwizard.Pac4jBundle;
@@ -38,11 +39,20 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
     public void run(Pac4JDemoConfiguration conf, Environment env)
             throws Exception {
 
+        // Enable multi-profile support on indirect clients only
+        // (clients that redirect to external login pages)
+        final Config config = pac4j.getConfig();
+        config.getClients().getClients().forEach(client -> {
+            if (client instanceof IndirectClient indirectClient) {
+                indirectClient.setMultiProfile(true);
+            }
+        });
+
         env.jersey().register(new AbstractBinder() {
             @Override
             protected void configure() {
                 // so that we can inject the config in resources if needed
-                bind(pac4j.getConfig()).to(Config.class);
+                bind(config).to(Config.class);
             }
         });
 
