@@ -20,7 +20,7 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
         new Pac4JDemoApplication().run(args);
     }
 
-    private final Pac4jBundle<Pac4JDemoConfiguration> pac4j = new Pac4jBundle<Pac4JDemoConfiguration>() {
+    private final Pac4jBundle<Pac4JDemoConfiguration> pac4j = new Pac4jBundle<>() {
         @Override
         public Pac4jFactory getPac4jFactory(
                 Pac4JDemoConfiguration configuration) {
