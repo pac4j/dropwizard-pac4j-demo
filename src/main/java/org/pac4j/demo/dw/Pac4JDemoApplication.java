@@ -8,10 +8,10 @@ import org.pac4j.demo.dw.resources.ViewsResource;
 import org.pac4j.dropwizard.Pac4jBundle;
 import org.pac4j.dropwizard.Pac4jFactory;
 
-import io.dropwizard.Application;
-import io.dropwizard.setup.Bootstrap;
-import io.dropwizard.setup.Environment;
-import io.dropwizard.views.ViewBundle;
+import io.dropwizard.core.Application;
+import io.dropwizard.core.setup.Bootstrap;
+import io.dropwizard.core.setup.Environment;
+import io.dropwizard.views.common.ViewBundle;
 import org.pac4j.sql.test.tools.DbServer;
 
 public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
@@ -48,7 +48,7 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
 
         env.jersey().register(ViewsResource.class);
 
-        env.healthChecks().register(getName(), new HealthCheck() {
+        env.healthChecks().register("application", new HealthCheck() {
             @Override
             protected Result check() throws Exception {
                 return Result.healthy();
