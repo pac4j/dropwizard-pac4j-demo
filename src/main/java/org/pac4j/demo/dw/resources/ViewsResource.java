@@ -1,9 +1,9 @@
 package org.pac4j.demo.dw.resources;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 
 import org.pac4j.core.config.Config;
 import org.pac4j.core.profile.CommonProfile;
@@ -16,7 +16,7 @@ import org.pac4j.jax.rs.annotations.Pac4JLogout;
 import org.pac4j.jax.rs.annotations.Pac4JProfileManager;
 import org.pac4j.jax.rs.annotations.Pac4JSecurity;
 
-import io.dropwizard.views.View;
+import io.dropwizard.views.common.View;
 
 @Path("/")
 public class ViewsResource {
@@ -29,7 +29,7 @@ public class ViewsResource {
     }
 
     @GET
-    public View index(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View index(@Pac4JProfileManager ProfileManager pm) {
         return new IndexView(pm);
     }
 
@@ -37,42 +37,42 @@ public class ViewsResource {
     @Path("/facebook/{page}.html")
     @Pac4JSecurity(clients = "FacebookClient", matchers = "excludedFbPath")
     public View fbProtected(
-            @Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+            @Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/saml2/index.html")
     @Pac4JSecurity(clients = "SAML2Client")
-    public View saml2(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View saml2(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/form/index.html")
     @Pac4JSecurity(clients = "FormClient")
-    public View form(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View form(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/basicauth/index.html")
     @Pac4JSecurity(clients = "IndirectBasicAuthClient")
-    public View basicauth(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View basicauth(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/protected/index.html")
     @Pac4JSecurity()
-    public View protect(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View protect(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
     @GET
     @Path("/dba/index.html")
     @Pac4JSecurity(clients = "DirectBasicAuthClient")
-    public View dba(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+    public View dba(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }
 
@@ -85,7 +85,7 @@ public class ViewsResource {
 
     @POST
     @Path("/callback")
-    @Pac4JCallback(multiProfile = true, renewSession = false, defaultUrl = "/views/")
+    @Pac4JCallback(renewSession = false, defaultUrl = "/views/")
     public void callbackPost() {
         // nothing to do here, pac4j handles everything
         // note that in jax-rs, you can't have two different http method on the
@@ -94,7 +94,7 @@ public class ViewsResource {
 
     @GET
     @Path("/callback")
-    @Pac4JCallback(multiProfile = true, renewSession = false, defaultUrl = "/views/")
+    @Pac4JCallback(renewSession = false, defaultUrl = "/views/")
     public void callbackGet() {
         // nothing to do here, pac4j handles everything
         // note that in jax-rs, you can't have two different http method on the
