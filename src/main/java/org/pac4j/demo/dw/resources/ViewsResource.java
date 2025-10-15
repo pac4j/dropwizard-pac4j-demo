@@ -85,7 +85,7 @@ public class ViewsResource {
 
     @POST
     @Path("/callback")
-    @Pac4JCallback(renewSession = false, defaultUrl = "/views/")
+    @Pac4JCallback(renewSession = false, defaultUrl = "/")
     public void callbackPost() {
         // nothing to do here, pac4j handles everything
         // note that in jax-rs, you can't have two different http method on the
@@ -94,7 +94,7 @@ public class ViewsResource {
 
     @GET
     @Path("/callback")
-    @Pac4JCallback(renewSession = false, defaultUrl = "/views/")
+    @Pac4JCallback(renewSession = false, defaultUrl = "/")
     public void callbackGet() {
         // nothing to do here, pac4j handles everything
         // note that in jax-rs, you can't have two different http method on the
@@ -104,7 +104,7 @@ public class ViewsResource {
     @GET
     @Path("/logout")
     @Pac4JSecurity(clients = "AnonymousClient", authorizers = "mustBeAuth")
-    @Pac4JLogout(defaultUrl = "/views/?defaulturlafterlogout")
+    @Pac4JLogout(defaultUrl = "/?defaulturlafterlogout")
     public void logout() {
         // nothing to do here, pac4j handles everything
     }
