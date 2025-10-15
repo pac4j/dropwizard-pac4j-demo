@@ -7,12 +7,16 @@ import io.dropwizard.views.common.View;
 
 public class LoginView extends View {
 
-    private String callbackUrl;
+    private final String callbackUrl;
 
     public LoginView(Config config) {
         super("/loginForm.mustache");
-        this.callbackUrl = config.getClients().findClient(FormClient.class).get()
-                .getCallbackUrl() + "?client_name=FormClient";
+
+        final var formClient = (FormClient) config.getClients()
+            .findClient("FormClient").orElseThrow();
+
+        this.callbackUrl =
+            formClient.getCallbackUrl() + "?client_name=FormClient";
     }
 
     public String getCallbackUrl() {
