@@ -24,11 +24,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <pac4j.version>5.7.8</pac4j.version>
-    <dropwizard-pac4j.version>7.0.0-SNAPSHOT</dropwizard-pac4j.version>
+    <pac4j.version>5.7.9</pac4j.version>
+    <dropwizard-pac4j.version>7.0.0</dropwizard-pac4j.version>
     <java.version>17</java.version>
-    <h2.version>2.3.232</h2.version>
-    <spring-security-crypto.version>6.5.1</spring-security-crypto.version>
+    <h2.version>2.4.240</h2.version>
+    <spring-security-crypto.version>7.0.4</spring-security-crypto.version>
   </properties>
 
   <dependencyManagement>
@@ -36,7 +36,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-bom</artifactId>
-        <version>5.0.0</version>
+        <version>5.0.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -128,7 +128,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <!-- Run with "mvn compile exec:exec" -->
         <artifactId>exec-maven-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.6.3</version>
         <configuration>
           <executable>${java.home}/bin/java</executable>
           <arguments>
@@ -143,7 +143,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.14.1</version>
+        <version>3.15.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
