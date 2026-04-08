@@ -11,15 +11,7 @@ pac4j:
   ajaxRequestResolver:
     class: org.pac4j.core.http.ajax.DefaultAjaxRequestResolver
   clientsProperties:
-    facebook.id: 145278422258960
-    facebook.secret: be21409ba8f39b5dae2a7de525484da8
-    saml.keystorePath: resource:samlKeystore.jks
-    saml.keystorePassword: pac4j-demo-passwd
-    saml.privateKeyPassword: pac4j-demo-passwd
-    saml.identityProviderMetadataPath: resource:metadata-okta.xml
-    saml.maximumAuthenticationLifetime: 3600
-    saml.serviceProviderEntityId: http://localhost:8080/callback?client_name=SAML2Client
-    saml.serviceProviderMetadataPath: sp-metadata.xml
+    cas.loginUrl: https://casserverpac4j.herokuapp.com/login
     anonymous: fakevalue
     ldap.type: direct
     ldap.url: ldap://ldap.jumpcloud.com:389
@@ -53,11 +45,6 @@ pac4j:
     mustBeAnon:
       class: org.pac4j.core.authorization.authorizer.IsAnonymousAuthorizer
       redirectionUrl: /?mustBeAnon
-  matchers:
-    excludedFbPath:
-      class: org.pac4j.core.matching.matcher.PathMatcher
-      excludedPaths:
-        - /facebook/notprotected.html
 
 logging:
   level: INFO

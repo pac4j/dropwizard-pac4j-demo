@@ -34,16 +34,8 @@ public class ViewsResource {
     }
 
     @GET
-    @Path("/facebook/{page}.html")
-    @Pac4JSecurity(clients = "FacebookClient", matchers = "excludedFbPath")
-    public View fbProtected(
-            @Pac4JProfileManager ProfileManager pm) {
-        return new ProfilesView(pm);
-    }
-
-    @GET
-    @Path("/saml2/index.html")
-    @Pac4JSecurity(clients = "SAML2Client")
+    @Path("/cas/index.html")
+    @Pac4JSecurity(clients = "CasClient")
     public View saml2(@Pac4JProfileManager ProfileManager pm) {
         return new ProfilesView(pm);
     }

@@ -64,11 +64,6 @@
     </dependency>
     <dependency>
       <groupId>org.pac4j</groupId>
-      <artifactId>pac4j-oauth</artifactId>
-      <version>${pac4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.pac4j</groupId>
       <artifactId>pac4j-http</artifactId>
       <version>${pac4j.version}</version>
     </dependency>
@@ -79,14 +74,8 @@
     </dependency>
     <dependency>
       <groupId>org.pac4j</groupId>
-      <artifactId>pac4j-saml</artifactId>
+      <artifactId>pac4j-cas</artifactId>
       <version>${pac4j.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-entitymanager</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.pac4j</groupId>
