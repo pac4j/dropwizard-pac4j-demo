@@ -1,7 +1,6 @@
 package org.pac4j.demo.dw;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.dropwizard.core.Configuration;
 import org.pac4j.dropwizard.Pac4jFactory;
 

@@ -17,11 +17,3 @@ Run the application with `mvn compile exec:exec` and access
 `http://localhost:8080`.
 
 `FormClient` and `FacebookClient` are demonstrated.
-
-# Pac4J for a REST API
-
-TO BE DONE
-
-# Pac4J for both servlets and JAX-RS
-
-TO BE DONE

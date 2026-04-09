@@ -1,19 +1,16 @@
 package org.pac4j.demo.dw;
 
 import com.codahale.metrics.health.HealthCheck;
-
+import io.dropwizard.core.Application;
+import io.dropwizard.core.setup.Bootstrap;
+import io.dropwizard.core.setup.Environment;
+import io.dropwizard.views.common.ViewBundle;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.pac4j.core.client.IndirectClient;
 import org.pac4j.core.config.Config;
 import org.pac4j.demo.dw.resources.ViewsResource;
 import org.pac4j.dropwizard.Pac4jBundle;
 import org.pac4j.dropwizard.Pac4jFactory;
-
-import io.dropwizard.core.Application;
-import io.dropwizard.core.setup.Bootstrap;
-import io.dropwizard.core.setup.Environment;
-import io.dropwizard.views.common.ViewBundle;
-import org.pac4j.sql.test.tools.DbServer;
 
 public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
 
@@ -64,7 +61,5 @@ public class Pac4JDemoApplication extends Application<Pac4JDemoConfiguration> {
                 return Result.healthy();
             }
         });
-
-        new DbServer();
     }
 }
