@@ -18,7 +18,7 @@ public class DemoConfigFactory implements ConfigFactory {
 
     @Override
     public Config build(final Object... parameters) {
-        final CasConfiguration configuration = new CasConfiguration("https://casserverpac4j.herokuapp.com/login");
+        final CasConfiguration configuration = new CasConfiguration("https://www.casserverpac4j.dev/login");
         final CasClient casClient = new CasClient(configuration);
         final FormClient formClient = new FormClient("http://localhost:8080/login.html", new SimpleTestUsernamePasswordAuthenticator());
         final IndirectBasicAuthClient indirectBasicAuthClient = new IndirectBasicAuthClient(new SimpleTestUsernamePasswordAuthenticator());
