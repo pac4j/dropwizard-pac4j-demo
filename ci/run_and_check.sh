@@ -22,6 +22,12 @@ echo "🌐 Starting Dropwizard server..."
 mvn exec:exec > target/server.log 2>&1 &
 SERVER_PID=$!
 
+# mvn exec:exec runs the application in a separate JVM: stop both processes
+stop_server() {
+    kill $1 $SERVER_PID 2>/dev/null || true
+    pkill $1 -f org.pac4j.demo.dw.Pac4JDemoApplication 2>/dev/null || true
+}
+
 # Wait for server to start (maximum 60 seconds)
 echo "⏳ Waiting for server startup..."
 for i in {1..60}; do
@@ -33,7 +39,7 @@ for i in {1..60}; do
         echo "❌ Timeout: Server did not start within 60 seconds"
         echo "📋 Server logs:"
         cat target/server.log
-        kill $SERVER_PID 2>/dev/null || true
+        stop_server
         exit 1
     fi
     sleep 1
@@ -167,13 +173,13 @@ fi
 
 # Always stop the server
 echo "🛑 Stopping server..."
-kill $SERVER_PID 2>/dev/null || true
+stop_server
 
 # Wait a moment for graceful shutdown
 sleep 2
 
 # Force kill if still running
-kill -9 $SERVER_PID 2>/dev/null || true
+stop_server -9
 
 if [ "$HTTP_CODE" = "200" ] && [ "$FORM_TEST_PASSED" = "true" ] && [ "$FORM_AUTH_PASSED" = "true" ]; then
     echo "🎉 dropwizard-pac4j-demo test completed successfully!"

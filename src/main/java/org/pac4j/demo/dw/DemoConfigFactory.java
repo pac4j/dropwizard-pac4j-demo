@@ -27,6 +27,8 @@ public class DemoConfigFactory implements ConfigFactory {
 
         final var config = new Config(clients);
 
+        // by default, JAX-RS requests are considered as AJAX requests (401 error instead of a redirection):
+        // the views of this demo are web pages, so the indirect clients must redirect to the login pages
         config.getClients().setAjaxRequestResolver(
             new DefaultAjaxRequestResolver());
         config.addAuthorizer("mustBeAuth",
