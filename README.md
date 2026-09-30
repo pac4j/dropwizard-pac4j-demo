@@ -1,4 +1,8 @@
 # dropwizard-pac4j-demo
+
+> This demo secures a Dropwizard application with **[dropwizard-pac4j](https://github.com/pac4j/dropwizard-pac4j)**, the Dropwizard implementation of **[pac4j](https://github.com/pac4j/pac4j)**, the security engine for Java.
+> If it is useful to you, please ⭐ **[star pac4j on GitHub](https://github.com/pac4j/pac4j)**: it helps other developers discover it!
+
 Dropwizard demo to test the dropwizard-pac4j and jax-rs-pac4j security library
 
 
